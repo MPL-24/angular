@@ -1,0 +1,28 @@
+:host {
+  display: block;
+}
+
+mat-card-header {
+  margin-bottom: 16px;
+}
+
+img[mat-card-avatar] {
+  object-fit: cover;
+}
+
+.avatar-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--mat-sys-surface-container-high);
+}
+
+.portrait {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.description {
+  margin-top: 0;
+}

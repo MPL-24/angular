@@ -1,0 +1,33 @@
+<h3 class="list-title">Autos</h3>
+
+@if (person.cars.length > 0) {
+  <mat-form-field appearance="outline" subscriptSizing="dynamic">
+    <mat-label>Immatrikulationsjahr</mat-label>
+    <input
+      #yearInput
+      matInput
+      type="number"
+      min="1900"
+      (input)="setRegistrationYear(yearInput.value)"
+    />
+    <mat-icon matSuffix>search</mat-icon>
+  </mat-form-field>
+
+  <mat-list>
+    @for (car of filteredCars; track car.licenseplate) {
+      <mat-list-item>
+        @if (car.imagelink) {
+          <img matListItemAvatar [src]="car.imagelink" [alt]="car.description" />
+        } @else {
+          <mat-icon matListItemIcon>directions_car</mat-icon>
+        }
+        <span matListItemTitle>{{ car.description }}</span>
+        <span matListItemLine>{{ car.licenseplate }}, {{ car.registrationyear }}</span>
+      </mat-list-item>
+    } @empty {
+      <p class="empty">Keine Autos nach {{ registrationYear }} zugelassen</p>
+    }
+  </mat-list>
+} @else {
+  <p class="empty">Keine Autos festgelegt</p>
+}

@@ -1,0 +1,7 @@
+<h1>Personenliste</h1>
+
+@for (person of persons; track person.name) {
+  <ua-person-item [person]="person" />
+} @empty {
+  <p class="empty">Keine Personen festgelegt</p>
+}

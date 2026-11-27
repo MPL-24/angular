@@ -1,0 +1,41 @@
+@let p = person;
+
+<mat-card appearance="raised">
+  <mat-card-header>
+    @if (p.imagelink) {
+      <img mat-card-avatar [src]="p.imagelink" [alt]="p.name" />
+    } @else {
+      <mat-icon mat-card-avatar class="avatar-icon">person</mat-icon>
+    }
+    <mat-card-title>{{ p.name }}</mat-card-title>
+    <mat-card-subtitle>{{ p.address.postcodetown }}, {{ p.address.streetnumber }}</mat-card-subtitle>
+  </mat-card-header>
+
+  <mat-card-content>
+    <div fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="16px">
+      <!-- Bild wird auf kleinen Bildschirmen ausgeblendet -->
+      @if (p.imagelink) {
+        <div fxFlex="30" fxHide.lt-md>
+          <img class="portrait" [src]="p.imagelink" [alt]="p.name" />
+        </div>
+      }
+
+      <div fxFlex>
+        <p class="description">
+          Geboren am {{ p.birthdate | date: 'd.M.yyyy' }}, derzeit im {{ yearOfLife }}. Lebensjahr,
+          hat eine Größe von {{ p.height | number: '1.2-2' : 'en-US' }} Metern,
+          @if (isTall) {
+            ist also groß,
+          }
+          {{ p.male ? 'ist ein Mann' : 'ist eine Frau' }}
+        </p>
+
+        <!-- Große Bildschirme: nebeneinander, kleine Bildschirme: untereinander -->
+        <div fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="16px">
+          <ua-email-list fxFlex="50" fxFlex.lt-md="100" [emailaddresses]="p.emailaddresses" />
+          <ua-car-list fxFlex="50" fxFlex.lt-md="100" [person]="p" />
+        </div>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>

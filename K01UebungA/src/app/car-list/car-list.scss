@@ -1,0 +1,13 @@
+:host {
+  display: block;
+}
+
+mat-form-field {
+  margin-top: 12px;
+  width: 100%;
+  max-width: 260px;
+}
+
+img[matListItemAvatar] {
+  object-fit: cover;
+}
