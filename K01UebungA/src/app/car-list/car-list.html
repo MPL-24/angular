@@ -22,7 +22,7 @@
           <mat-icon matListItemIcon>directions_car</mat-icon>
         }
         <span matListItemTitle>{{ car.description }}</span>
-        <span matListItemLine>{{ car.licenseplate }}, {{ car.registrationyear }}</span>
+        <span matListItemLine>{{ car.licenseplate }}, Immatrikulationsjahr: {{ car.registrationyear }}</span>
       </mat-list-item>
     } @empty {
       <p class="empty">Keine Autos nach {{ registrationYear }} zugelassen</p>
