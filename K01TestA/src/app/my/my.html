@@ -1,0 +1,13 @@
+<ta-email-list [emailaddresses] = "person.emailaddresses"></ta-email-list>
+
+@if (person.cars) {
+  <mat-list>
+    @for (car of person.cars; track car.licenseplate) {
+      <mat-list-item>
+        <mat-icon matListItemIcon>commute</mat-icon>
+        <span matListItemTitle>{{ car.description }}</span>
+        <span matListItemLine>{{ car.licenseplate }}</span>
+      </mat-list-item>
+    }
+  </mat-list>
+}

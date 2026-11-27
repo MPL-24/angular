@@ -1,0 +1,14 @@
+<mat-progress-bar mode="indeterminate"></mat-progress-bar>
+<h1>Hallo Angular</h1>
+<ta-search-term (searchTerm)="onSearchTermChange($event)"></ta-search-term>
+<ta-my></ta-my>
+
+<div fxLayoutGap="10px" fxLayout.gt-md="row"
+  fxLayout.lt-lg="column"> <!-- Zeile eigentlich unnötig -->
+  <mat-card fxFlex.gt-md="200px"
+    [ngStyle.xs]='{"font-size.px": 30}'>
+    Element 1
+  </mat-card>
+  <mat-card fxFlex>Element 2</mat-card>
+  <mat-card fxFlex fxHide.lt-sm>Element 3</mat-card>
+</div>

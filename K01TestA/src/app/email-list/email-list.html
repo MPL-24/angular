@@ -1,0 +1,7 @@
+<ul>
+  @for (email of emailaddresses; track email) {
+    <li>{{ email }}</li>
+  } @empty {
+    <li>Keine E-Mail-Adressen vorhanden</li>
+  }
+</ul>
